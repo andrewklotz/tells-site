@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(){var d=document.documentElement;try{localStorage.removeItem("tells-motion")}catch(e){}d.setAttribute("data-motion","full");d.className+=" js intro"})();</script>
+<style>
+:root{color-scheme:dark}
+html,body{background:#0f0e0c;color:#fff;margin:0}
+</style>
+<title>Tells · A companion app for your sportsbook</title>
+<meta name="description" content="An iPhone app for your sportsbook, in your brand. Live scores, a bet record that grades itself, their game on the Lock Screen. Nothing changes on your platform.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tells · Keep players coming back between bets">
+<meta property="og:description" content="An iPhone app for your sportsbook, in your brand. Live scores, a bet record that grades itself, and their game on the Lock Screen.">
+<meta property="og:url" content="https://andrewklotz.github.io/tells-site/">
+<meta property="og:image" content="https://andrewklotz.github.io/tells-site/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Tells mark in black on yellow, with the line ‘Keep players coming back between bets.’">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://andrewklotz.github.io/tells-site/">
+<link rel="preload" as="font" type="font/woff2" href="fonts/archivo.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/crimson-pro-italic-600.woff2" crossorigin>
+<link rel="preload" as="image" href="media/screen-live.jpg" fetchpriority="high">
+<link rel="stylesheet" href="css/site.css?v=1fcf30ba55">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+<link rel="preload" as="script" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js" integrity="sha384-XmJ9SoHtVOHoQUcKvFAzVXwdkKo1Ie3bhmSoIAkcdsHGaIrVJIkmozyq0FJeb/Ly">
+<link rel="preload" as="script" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js" integrity="sha384-wl5TeDVvOWt30Pbf8aSo2ZrzsOjddu3avOBvHe+p+OhJt9gP6w9YXmDkN5DK2/dF">
+<link rel="preload" as="script" crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/CustomEase.min.js" integrity="sha384-bk/dsRkKcZYqsQ8OzP86S+TVAAI6D7V0ApKLhj3ssXqZPNYYO77EXxOrTX+pp1g/">
+<script defer src="js/data.js?v=18aa17d00a"></script>
+<script defer src="js/main.js?v=2da656cb8c"></script>
+<script defer src="js/charts.js?v=c639538008"></script>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="mark" viewBox="0 0 408.07 233.26"><path fill-rule="nonzero" d="M121.90 39.76 L176.07 18.20 L180.22 3.96 L11.89 66.57 L0.00 108.17 L27.09 136.50 L42.71 131.11 L46.99 117.01 L31.10 122.40 L46.44 69.47 L46.71 69.47 L82.92 55.24 L29.28 233.26 L68.61 219.73 L121.90 39.76 Z"/><path fill-rule="evenodd" d="M379.84 72.58 L374.14 116.58 L298.35 184.22 L353.76 0.00 L314.23 14.10 L272.61 152.20 L231.08 184.22 L286.50 0.00 L246.97 14.10 L212.36 128.93 L147.01 179.77 L137.04 169.97 L142.76 150.76 L190.66 126.07 L195.74 109.27 L168.02 65.58 L121.93 100.54 L98.44 179.48 L131.85 212.82 L206.35 148.83 L195.68 184.22 L222.63 212.55 L266.01 174.03 L262.94 184.21 L289.89 212.54 L370.66 140.19 L361.90 192.38 L340.14 171.82 L336.03 185.35 L358.85 212.81 L393.74 199.28 L408.07 103.89 L379.81 72.58 Z M158.71 97.22 L172.69 118.24 L148.76 130.58 L158.72 97.22 Z"/></symbol>
+  <filter id="ink-head" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="14" data-ink-head-blur/>
+    <feComponentTransfer><feFuncA type="linear" slope="5" intercept="-2"/></feComponentTransfer>
+  </filter>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path pathLength="1" d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lead" viewBox="0 0 6 8"><path d="M6 0v8L0 4Z"/></symbol><symbol id="ps-lead" viewBox="0 0 6.32 6.12"><path d="M.4 3.06 5.92.4v5.32Z" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/></symbol>
+  <symbol id="t-activity" viewBox="0 0 24 24"><path d="M2 12h3l2-8 2 16 2-8h2l2-5 2 10 2-5h3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="t-feed" viewBox="0 0 24 24"><path d="M7 2h10M5 6h14M5 10h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="t-slips" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2ZM3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M3 11h3c.8 0 1.6.3 2.1.9l1.1.9a4 4 0 0 0 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="t-play" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0Z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="t-person" viewBox="0 0 24 24"><path d="M16 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+
+  <defs>
+  <linearGradient id="dv-band" x1="0" y1="0" x2="434" y2="906" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#8f8a82"/><stop offset=".16" stop-color="#6b665f"/><stop offset=".5" stop-color="#47433e"/>
+  <stop offset=".84" stop-color="#3a3733"/><stop offset="1" stop-color="#5d5952"/></linearGradient>
+  <linearGradient id="dv-btn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b665f"/><stop offset="1" stop-color="#3f3c37"/></linearGradient>
+  </defs>
+  <symbol id="device-frame" viewBox="0 0 434 906" overflow="visible">
+  <g fill="url(#dv-btn)"><rect x="-2.9" y="189.5" width="3.5" height="37" rx="1.5"/><rect x="-2.9" y="267" width="3.5" height="62" rx="1.5"/><rect x="-2.9" y="351" width="3.5" height="62" rx="1.5"/><rect x="433.4" y="272" width="3.5" height="104" rx="1.5"/></g>
+  <path fill="url(#dv-band)" fill-rule="evenodd" d="M314.76 0L340.74 0.22L354.03 0.88L364.66 1.98L373.79 3.53L381.85 5.52L389.07 7.96L395.6 10.86L401.5 14.21L406.84 18.04L411.65 22.35L415.96 27.16L419.79 32.5L423.14 38.4L426.04 44.93L428.48 52.15L430.47 60.21L432.02 69.34L433.12 79.97L433.78 93.26L434 119.24L434 786.76L433.78 812.74L433.12 826.03L432.02 836.66L430.47 845.79L428.48 853.85L426.04 861.07L423.14 867.6L419.79 873.5L415.96 878.84L411.65 883.65L406.84 887.96L401.5 891.79L395.6 895.14L389.07 898.04L381.85 900.48L373.79 902.47L364.66 904.02L354.03 905.12L340.74 905.78L314.76 906L119.24 906L93.26 905.78L79.97 905.12L69.34 904.02L60.21 902.47L52.15 900.48L44.93 898.04L38.4 895.14L32.5 891.79L27.16 887.96L22.35 883.65L18.04 878.84L14.21 873.5L10.86 867.6L7.96 861.07L5.52 853.85L3.53 845.79L1.98 836.66L0.88 826.03L0.22 812.74L0 786.76L0 119.24L0.22 93.26L0.88 79.97L1.98 69.34L3.53 60.21L5.52 52.15L7.96 44.93L10.86 38.4L14.21 32.5L18.04 27.16L22.35 22.35L27.16 18.04L32.5 14.21L38.4 10.86L44.93 7.96L52.15 5.52L60.21 3.53L69.34 1.98L79.97 0.88L93.26 0.22L119.24 0ZM315.95 2.25L341.18 2.46L354.08 3.11L364.41 4.18L373.27 5.68L381.1 7.61L388.12 9.98L394.46 12.79L400.19 16.05L405.38 19.77L410.05 23.95L414.23 28.62L417.95 33.81L421.21 39.54L424.02 45.88L426.39 52.9L428.32 60.73L429.82 69.59L430.89 79.92L431.54 92.82L431.75 118.05L431.75 787.95L431.54 813.18L430.89 826.08L429.82 836.41L428.32 845.27L426.39 853.1L424.02 860.12L421.21 866.46L417.95 872.19L414.23 877.38L410.05 882.05L405.38 886.23L400.19 889.95L394.46 893.21L388.12 896.02L381.1 898.39L373.27 900.32L364.41 901.82L354.08 902.89L341.18 903.54L315.95 903.75L118.05 903.75L92.82 903.54L79.92 902.89L69.59 901.82L60.73 900.32L52.9 898.39L45.88 896.02L39.54 893.21L33.81 889.95L28.62 886.23L23.95 882.05L19.77 877.38L16.05 872.19L12.79 866.46L9.98 860.12L7.61 853.1L5.68 845.27L4.18 836.41L3.11 826.08L2.46 813.18L2.25 787.95L2.25 118.05L2.46 92.82L3.11 79.92L4.18 69.59L5.68 60.73L7.61 52.9L9.98 45.88L12.79 39.54L16.05 33.81L19.77 28.62L23.95 23.95L28.62 19.77L33.81 16.05L39.54 12.79L45.88 9.98L52.9 7.61L60.73 5.68L69.59 4.18L79.92 3.11L92.82 2.46L118.05 2.25Z"/>
+  <path fill="#0b0a0b" fill-rule="evenodd" d="M315.95 2.25L341.18 2.46L354.08 3.11L364.41 4.18L373.27 5.68L381.1 7.61L388.12 9.98L394.46 12.79L400.19 16.05L405.38 19.77L410.05 23.95L414.23 28.62L417.95 33.81L421.21 39.54L424.02 45.88L426.39 52.9L428.32 60.73L429.82 69.59L430.89 79.92L431.54 92.82L431.75 118.05L431.75 787.95L431.54 813.18L430.89 826.08L429.82 836.41L428.32 845.27L426.39 853.1L424.02 860.12L421.21 866.46L417.95 872.19L414.23 877.38L410.05 882.05L405.38 886.23L400.19 889.95L394.46 893.21L388.12 896.02L381.1 898.39L373.27 900.32L364.41 901.82L354.08 902.89L341.18 903.54L315.95 903.75L118.05 903.75L92.82 903.54L79.92 902.89L69.59 901.82L60.73 900.32L52.9 898.39L45.88 896.02L39.54 893.21L33.81 889.95L28.62 886.23L23.95 882.05L19.77 877.38L16.05 872.19L12.79 866.46L9.98 860.12L7.61 853.1L5.68 845.27L4.18 836.41L3.11 826.08L2.46 813.18L2.25 787.95L2.25 118.05L2.46 92.82L3.11 79.92L4.18 69.59L5.68 60.73L7.61 52.9L9.98 45.88L12.79 39.54L16.05 33.81L19.77 28.62L23.95 23.95L28.62 19.77L33.81 16.05L39.54 12.79L45.88 9.98L52.9 7.61L60.73 5.68L69.59 4.18L79.92 3.11L92.82 2.46L118.05 2.25ZM323.49 16.5L343.97 16.67L354.44 17.19L362.83 18.06L370.02 19.28L376.38 20.85L382.08 22.78L387.22 25.06L391.88 27.7L396.09 30.72L399.88 34.12L403.28 37.91L406.3 42.12L408.94 46.78L411.22 51.92L413.15 57.62L414.72 63.98L415.94 71.17L416.81 79.56L417.33 90.03L417.5 110.51L417.5 795.49L417.33 815.97L416.81 826.44L415.94 834.83L414.72 842.02L413.15 848.38L411.22 854.08L408.94 859.22L406.3 863.88L403.28 868.09L399.88 871.88L396.09 875.28L391.88 878.3L387.22 880.94L382.08 883.22L376.38 885.15L370.02 886.72L362.83 887.94L354.44 888.81L343.97 889.33L323.49 889.5L110.51 889.5L90.03 889.33L79.56 888.81L71.17 887.94L63.98 886.72L57.62 885.15L51.92 883.22L46.78 880.94L42.12 878.3L37.91 875.28L34.12 871.88L30.72 868.09L27.7 863.88L25.06 859.22L22.78 854.08L20.85 848.38L19.28 842.02L18.06 834.83L17.19 826.44L16.67 815.97L16.5 795.49L16.5 110.51L16.67 90.03L17.19 79.56L18.06 71.17L19.28 63.98L20.85 57.62L22.78 51.92L25.06 46.78L27.7 42.12L30.72 37.91L34.12 34.12L37.91 30.72L42.12 27.7L46.78 25.06L51.92 22.78L57.62 20.85L63.98 19.28L71.17 18.06L79.56 17.19L90.03 16.67L110.51 16.5Z"/>
+  <path fill="none" stroke="#1b1a18" stroke-width=".6" d="M315.95 2.25L341.18 2.46L354.08 3.11L364.41 4.18L373.27 5.68L381.1 7.61L388.12 9.98L394.46 12.79L400.19 16.05L405.38 19.77L410.05 23.95L414.23 28.62L417.95 33.81L421.21 39.54L424.02 45.88L426.39 52.9L428.32 60.73L429.82 69.59L430.89 79.92L431.54 92.82L431.75 118.05L431.75 787.95L431.54 813.18L430.89 826.08L429.82 836.41L428.32 845.27L426.39 853.1L424.02 860.12L421.21 866.46L417.95 872.19L414.23 877.38L410.05 882.05L405.38 886.23L400.19 889.95L394.46 893.21L388.12 896.02L381.1 898.39L373.27 900.32L364.41 901.82L354.08 902.89L341.18 903.54L315.95 903.75L118.05 903.75L92.82 903.54L79.92 902.89L69.59 901.82L60.73 900.32L52.9 898.39L45.88 896.02L39.54 893.21L33.81 889.95L28.62 886.23L23.95 882.05L19.77 877.38L16.05 872.19L12.79 866.46L9.98 860.12L7.61 853.1L5.68 845.27L4.18 836.41L3.11 826.08L2.46 813.18L2.25 787.95L2.25 118.05L2.46 92.82L3.11 79.92L4.18 69.59L5.68 60.73L7.61 52.9L9.98 45.88L12.79 39.54L16.05 33.81L19.77 28.62L23.95 23.95L28.62 19.77L33.81 16.05L39.54 12.79L45.88 9.98L52.9 7.61L60.73 5.68L69.59 4.18L79.92 3.11L92.82 2.46L118.05 2.25Z"/>
+  <rect x="431.95" y="583" width="1.9" height="58" rx="0.95" fill="#1e1d1b" stroke="#57534c" stroke-width=".3"/>
+  <rect x="154.33" y="30" width="125.33" height="36.67" rx="18.335" fill="#000" style="fill:var(--dv-island,#000)"/>
+  <circle cx="261.33" cy="48.33" r="6.2" fill="#07070d" style="fill:var(--dv-lens,#07070d)"/>
+  </symbol>
+</svg>
+
+<div class="top-fade" aria-hidden="true"></div>
+<header class="site-header" data-header>
+  <div class="site-header__in">
+    <a class="site-header__mark" href="#top" aria-label="Tells, back to top"><svg viewBox="0 0 408.07 233.26" aria-hidden="true" focusable="false"><use href="#mark"/></svg></a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#live" data-nav="product">Product</a>
+      <a href="#your-brand" data-nav="your-brand">Your brand</a>
+      <a href="#market" data-nav="market">Market</a>
+      <a href="#how" data-nav="how">How it works</a>
+    </nav>
+    <div class="site-header__end">
+      <a class="btn btn--light" href="mailto:aklotzbuilds@gmail.com?subject=Tells%20demo%20request&amp;body=Hi%20Andrew%2C%0D%0A%0D%0AWe%27d%20like%20to%20see%20a%20demo%20of%20Tells.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0ABest%20times%3A%0D%0A"><span>Book a demo</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="hero__in">
+    <h1 class="h1 hero__title" id="hero-title"><span class="vh">Keep players coming back between bets.</span><span class="hl" aria-hidden="true"><span class="w" style="--d:.107s">Keep</span> <span class="w" style="--d:.044s">players</span> <span class="w" style="--d:.203s">coming</span> <span class="w" style="--d:.3s"><em>back</em></span></span> <span class="hl" aria-hidden="true"><span class="w" style="--d:.141s">between</span> <span class="w" style="--d:.25s">bets.</span></span></h1>
+    <p class="lead hero__lead" data-intro="rest">An iPhone app in your brand: live scores, a bet record that grades itself, their game on the Lock Screen. Nothing changes on your&nbsp;platform.</p>
+    <div class="hero__actions" data-intro="rest">
+      <a class="btn btn--yellow" href="mailto:aklotzbuilds@gmail.com?subject=Tells%20demo%20request&amp;body=Hi%20Andrew%2C%0D%0A%0D%0AWe%27d%20like%20to%20see%20a%20demo%20of%20Tells.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0ABest%20times%3A%0D%0A"><span>Book a demo</span></a>
+      <button class="btn btn--dark" type="button" data-film-open aria-haspopup="dialog"><svg aria-hidden="true" focusable="false"><use href="#i-play"/></svg><span>Watch the film · 0:20</span></button>
+    </div>
+    <p class="hero__proof" data-intro="rest">Built, and running on iPhone&nbsp;today.</p>
+  </div>
+  <div class="device device--inline only-stack">
+    <div class="device__screen">
+      <figure aria-hidden="true" class="screen-media is-current" data-film="live" data-hero>
+        <img src="media/screen-live.jpg" alt="" width="720" height="1566" fetchpriority="high" decoding="async">
+        <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-live.webm" data-mp4="media/screen-live.mp4"></video>
+      </figure>
+    </div>
+    <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+  </div>
+</section>
+
+<div class="stage" data-stage data-side="center">
+  <div class="stage__chapters">
+    <div class="stage__spacer" aria-hidden="true"></div>
+
+    <section class="chapter" id="live" aria-labelledby="live-title" data-chapter="live">
+      <div class="chapter__text">
+        <h2 class="h2" id="live-title" data-focus>Every score. The <em>moment</em> it&nbsp;lands.</h2>
+        <p class="body" data-focus="block">When a team scores, the number rolls and the card lights up in the team’s colour. Tap in for the clock, the odds and win probability.</p>
+        <p class="vh">Film: the Scores board with three live games. A three lights the Liberty’s card; the Bills score a touchdown and their card lights in blue; the game opens with the score, the clock, win probability at 62% to 38%, and the odds.</p>
+        <div class="benefits" data-focus="block">
+          <div><p class="benefits__who">For your players</p><p class="benefits__line">The score, and who scored, at a glance.</p></div>
+          <div><p class="benefits__who">For your book</p><p class="benefits__line">Your app open during every game, not only to bet.</p></div>
+        </div>
+        <details class="details" data-focus="block">
+          <summary>Details</summary>
+          <div class="details__body">
+            <dl class="facts"><div><dt>Their teams</dt><dd>Follow a team and its game leads their widgets. One tap filters the scores to&nbsp;it.</dd></div><div><dt>Missed it?</dt><dd>A score they missed plays once when they come back.</dd></div><div><dt>Six leagues</dt><dd>NFL, NBA, NHL, MLB, WNBA and UFC.</dd></div></dl>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter" id="lock-screen" aria-labelledby="lock-title" data-chapter="widgets">
+      <div class="chapter__text">
+        <h2 class="h2" id="lock-title" data-focus>Your name on the Lock Screen, until the&nbsp;<em>final</em>.</h2>
+        <p class="body" data-focus="block">During their game, the score and their bet stay on the Lock Screen, even with the app closed. Between games, three widgets keep their team, the next game and their parlay on the Home&nbsp;Screen.</p>
+        <p class="vh">Film: the Lock Screen with a live game card, Bills 21, Chiefs 17, then one leg of a two-leg parlay won; unlocked, the Home Screen widgets show the score, the next game’s win probability and the parlay, which settles as won.</p>
+        <div class="device device--inline only-stack">
+          <div class="device__screen">
+            <figure aria-hidden="true" class="screen-media is-current" data-film="widgets">
+              <img src="media/screen-widgets.jpg" alt="" width="720" height="1566" loading="lazy" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-widgets.webm" data-mp4="media/screen-widgets.mp4"></video>
+            </figure>
+          </div>
+          <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+        </div>
+        <div class="benefits" data-focus="block">
+          <div><p class="benefits__who">For your players</p><p class="benefits__line">Follow the bet without unlocking.</p></div>
+          <div><p class="benefits__who">For your book</p><p class="benefits__line">Your logo in front of them every time they check their phone during the game.</p></div>
+        </div>
+        <details class="details" data-focus="block">
+          <summary>Details</summary>
+          <div class="details__body">
+            <dl class="facts"><div><dt>App closed</dt><dd>NFL, NBA, NHL, MLB and WNBA scores still reach the card, within about 30 seconds. Each leg is marked as its game ends.</dd></div><div><dt>Hide picks</dt><dd>One switch keeps the score on the Lock Screen and takes the bet off it.</dd></div><div><dt>Three widgets</dt><dd>Score, Win probability and Parlay, on the Home Screen and the Lock Screen. A tap opens that game or slip.</dd></div><div><dt>Widgets, offered</dt><dd>After their first parlay, the app shows it as a widget and how to add&nbsp;it.</dd></div></dl>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter" id="slips" aria-labelledby="slips-title" data-chapter="track">
+      <div class="chapter__text">
+        <h2 class="h2" id="slips-title" data-focus>Scan the slip. The record keeps&nbsp;<em>itself</em>.</h2>
+        <p class="body" data-focus="block">A player screenshots a slip and the app reads it. Legs are graded from the final score, and the slips build a record by sport and bet&nbsp;type.</p>
+        <p class="vh">Film: a slip screenshot is read; the slip’s true odds show it needs 35.2% to break even, with a margin of 8.9%; the record’s line draws in; an insight card reads ‘You beat the close on 7 of 10 bets.’</p>
+        <div class="device device--inline only-stack">
+          <div class="device__screen">
+            <figure aria-hidden="true" class="screen-media is-current" data-film="track">
+              <img src="media/screen-track.jpg" alt="" width="720" height="1566" loading="lazy" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-track.webm" data-mp4="media/screen-track.mp4"></video>
+            </figure>
+          </div>
+          <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+        </div>
+        <div class="benefits" data-focus="block">
+          <div><p class="benefits__who">For your players</p><p class="benefits__line">One screenshot fills in the slip, and their record keeps&nbsp;score.</p></div>
+          <div><p class="benefits__who">For your book</p><p class="benefits__line">Their record lives in your app, under your&nbsp;name.</p></div>
+        </div>
+        <details class="details" data-focus="block">
+          <summary>Details</summary>
+          <div class="details__body">
+            <dl class="facts"><div><dt>Closing line</dt><dd>A bet’s price beside the closing price: <span class="nowrap">−110 · close −118</span>.</dd></div><div><dt>True odds</dt><dd>What a bet or parlay needs to break even, and how the margin compounds with each&nbsp;leg.</dd></div><div><dt>Nothing guessed</dt><dd>If the scan can’t read a figure, it leaves it blank and says so.</dd></div></dl>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter" id="play" aria-labelledby="play-title" data-chapter="play">
+      <div class="chapter__text">
+        <h2 class="h2" id="play-title" data-focus>Pick the game. Share the code. See who <em>called</em>&nbsp;it.</h2>
+        <p class="body" data-focus="block">A free pick sheet for game night, on any NFL, NBA or NHL game. Friends join with a code and a name, pick before kickoff, and the live game scores their answers.</p>
+        <p class="vh">Film: a pick sheet asks heads or tails and a gold coin lands on tails; the live sheet marks the first score and the leaderboard moves the player to first; the final reads ‘Sam called it.’</p>
+        <div class="device device--inline only-stack">
+          <div class="device__screen">
+            <figure aria-hidden="true" class="screen-media is-current" data-film="play">
+              <img src="media/screen-play.jpg" alt="" width="720" height="1566" loading="lazy" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-play.webm" data-mp4="media/screen-play.mp4"></video>
+            </figure>
+          </div>
+          <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+        </div>
+        <div class="benefits" data-focus="block">
+          <div><p class="benefits__who">For your players</p><p class="benefits__line">Game night with friends, for bragging rights.</p></div>
+          <div><p class="benefits__who">For your book</p><p class="benefits__line">Every sheet invites their friends into your&nbsp;app.</p></div>
+        </div>
+        <details class="details" data-focus="block">
+          <summary>Details</summary>
+          <div class="details__body">
+            <dl class="facts"><div><dt>Shared results</dt><dd>The final’s result card carries your logo into their group&nbsp;chat.</dd></div><div><dt>Join with a code</dt><dd>No sign-up: a code and a name.</dd></div><div><dt>Scored from the game</dt><dd>The live score marks the answers, and the host marks the coin toss. Picks stay hidden until the lock.</dd></div></dl>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="chapter chapter--brand" id="your-brand" aria-labelledby="brand-title" data-chapter="brand">
+      <div class="chapter__text">
+        <h2 class="h2" id="brand-title" data-focus>Your brand on every&nbsp;<em>screen</em>.</h2>
+        <p class="body" data-focus="block">Your name, logo, colours and fonts run through every screen, the widgets and the Lock Screen card included. It’s released under your Apple developer account, with your icon and launch screen.</p>
+
+        <div class="device device--inline only-stack">
+          <div class="device__screen">
+            <div class="screen-media is-current" data-film="brand" data-brand-slot="inline">
+              <div class="screen-mock" role="img" aria-label="The Scores screen in the Tells theme: warm near-black, lemon-yellow accents, the Tells script mark, two live games (Bills 14, Chiefs 17 in the fourth quarter; Oilers 1, Golden Knights 2 in the third period), the Heat and Warriors and the Knicks and Lakers, both at 10:30 PM." data-label-yours="The same Scores screen in a second brand’s theme: cool navy-black, aqua accents, sharper corners, a different typeface, and the name YOUR BRAND set in type.">
+                <div class="screen-mock__layer" data-theme="tells" aria-hidden="true"><svg class="ps-status" viewBox="0 0 402 54"><text x="73.83" y="38.09">7:21</text><path d="M288.4 34h1.2a.9 .9 0 0 1 .9 .9v2.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-2.53a.9 .9 0 0 1 .9-.9ZM293.07 31.66h1.2a.9 .9 0 0 1 .9 .9v4.87a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-4.87a.9 .9 0 0 1 .9-.9ZM297.74 29.33h1.2a.9 .9 0 0 1 .9 .9v7.2a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-7.2a.9 .9 0 0 1 .9-.9ZM302.41 27h1.2a.9 .9 0 0 1 .9 .9v9.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-9.53a.9 .9 0 0 1 .9-.9ZM315.33 30.33A11.31 11.31 0 0 1 331.33 30.33L329.61 32.05A8.88 8.88 0 0 0 317.05 32.05ZM318.09 33.09A7.41 7.41 0 0 1 328.57 33.09L326.85 34.81A4.98 4.98 0 0 0 319.81 34.81ZM323.33 38.33L320.85 35.85A3.51 3.51 0 0 1 325.81 35.85Z"/><rect x="339.83" y="26.5" width="24.33" height="11.67" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><path d="M365.26 29.33h.47a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2h-.47Z" fill-opacity=".4"/><rect x="341.33" y="28" width="21.33" height="8.67" rx="2.1"/></svg><div class="ps-top"><svg class="ps-mark" viewBox="0 0 408.07 233.26"><use href="#mark"/></svg><span class="ps-brand">YOUR BRAND</span><span class="ps-avatar"><svg viewBox="0 0 24 24"><use href="#t-person"/></svg></span></div><div class="ps-pills"><span class="ps-pill ps-pill--live">Live</span><span class="ps-pill"><img src="media/league-nfl.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NFL</span><span class="ps-pill"><img src="media/league-nba.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NBA</span><span class="ps-pill"><img src="media/league-nhl.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NHL</span><span class="ps-pill"><img src="media/league-mlb.webp" alt="" width="18" height="18" loading="lazy" decoding="async">MLB</span></div><div class="ps-list"><p class="ps-head">Live now</p><div class="ps-card is-live"><div class="ps-card__top"><span class="ps-league">NFL</span><span class="ps-live">LIVE</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-buf.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Buffalo Bills</b><em>14</em></div><div class="ps-team"><img src="media/crest-kc.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Kansas City Chiefs</b><em>17</em><svg class="ps-lead" viewBox="0 0 6.32 6.12"><use href="#ps-lead"/></svg></div></div><p class="ps-clock">Q4<i>·</i>2:14</p></div><div class="ps-card is-live"><div class="ps-card__top"><span class="ps-league">NHL</span><span class="ps-live">LIVE</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-edm.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Edmonton Oilers</b><em>1</em></div><div class="ps-team"><img src="media/crest-vgk.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Vegas Golden Knights</b><em>2</em><svg class="ps-lead" viewBox="0 0 6.32 6.12"><use href="#ps-lead"/></svg></div></div><p class="ps-clock">3rd<i>·</i>8:42</p></div><p class="ps-head ps-head--next">Upcoming today</p><div class="ps-card"><div class="ps-card__top"><span class="ps-league">NBA</span><span class="ps-time">10:30 PM</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-mia.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Miami Heat</b></div><div class="ps-team"><img src="media/crest-gsw.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Golden State Warriors</b></div></div></div><div class="ps-card"><div class="ps-card__top"><span class="ps-league">NBA</span><span class="ps-time">10:30 PM</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-nyk.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>New York Knicks</b></div><div class="ps-team"><img src="media/crest-lal.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Los Angeles Lakers</b></div></div></div></div><div class="ps-edge"></div><div class="ps-tabbar"><i></i><svg viewBox="21 791 360 62"><g class="is-on"><use href="#t-activity" x="63.4" y="804.67" width="21" height="21"/><text x="73.9" y="839.67">Scores</text></g><g><use href="#t-feed" x="148.1" y="804.67" width="21" height="21"/><text x="158.6" y="839.67">Feed</text></g><g><use href="#t-slips" x="232.9" y="804.67" width="21" height="21"/><text x="243.4" y="839.67">Slips</text></g><g><use href="#t-play" x="317.7" y="804.67" width="21" height="21"/><text x="328.2" y="839.67">Play</text></g></svg></div></div>
+                <div class="screen-mock__layer" data-theme="yours" aria-hidden="true"><svg class="ps-status" viewBox="0 0 402 54"><text x="73.83" y="38.09">7:21</text><path d="M288.4 34h1.2a.9 .9 0 0 1 .9 .9v2.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-2.53a.9 .9 0 0 1 .9-.9ZM293.07 31.66h1.2a.9 .9 0 0 1 .9 .9v4.87a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-4.87a.9 .9 0 0 1 .9-.9ZM297.74 29.33h1.2a.9 .9 0 0 1 .9 .9v7.2a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-7.2a.9 .9 0 0 1 .9-.9ZM302.41 27h1.2a.9 .9 0 0 1 .9 .9v9.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-9.53a.9 .9 0 0 1 .9-.9ZM315.33 30.33A11.31 11.31 0 0 1 331.33 30.33L329.61 32.05A8.88 8.88 0 0 0 317.05 32.05ZM318.09 33.09A7.41 7.41 0 0 1 328.57 33.09L326.85 34.81A4.98 4.98 0 0 0 319.81 34.81ZM323.33 38.33L320.85 35.85A3.51 3.51 0 0 1 325.81 35.85Z"/><rect x="339.83" y="26.5" width="24.33" height="11.67" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><path d="M365.26 29.33h.47a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2h-.47Z" fill-opacity=".4"/><rect x="341.33" y="28" width="21.33" height="8.67" rx="2.1"/></svg><div class="ps-top"><svg class="ps-mark" viewBox="0 0 408.07 233.26"><use href="#mark"/></svg><span class="ps-brand">YOUR BRAND</span><span class="ps-avatar"><svg viewBox="0 0 24 24"><use href="#t-person"/></svg></span></div><div class="ps-pills"><span class="ps-pill ps-pill--live">Live</span><span class="ps-pill"><img src="media/league-nfl.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NFL</span><span class="ps-pill"><img src="media/league-nba.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NBA</span><span class="ps-pill"><img src="media/league-nhl.webp" alt="" width="18" height="18" loading="lazy" decoding="async">NHL</span><span class="ps-pill"><img src="media/league-mlb.webp" alt="" width="18" height="18" loading="lazy" decoding="async">MLB</span></div><div class="ps-list"><p class="ps-head">Live now</p><div class="ps-card is-live"><div class="ps-card__top"><span class="ps-league">NFL</span><span class="ps-live">LIVE</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-buf.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Buffalo Bills</b><em>14</em></div><div class="ps-team"><img src="media/crest-kc.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Kansas City Chiefs</b><em>17</em><svg class="ps-lead" viewBox="0 0 6.32 6.12"><use href="#ps-lead"/></svg></div></div><p class="ps-clock">Q4<i>·</i>2:14</p></div><div class="ps-card is-live"><div class="ps-card__top"><span class="ps-league">NHL</span><span class="ps-live">LIVE</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-edm.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Edmonton Oilers</b><em>1</em></div><div class="ps-team"><img src="media/crest-vgk.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Vegas Golden Knights</b><em>2</em><svg class="ps-lead" viewBox="0 0 6.32 6.12"><use href="#ps-lead"/></svg></div></div><p class="ps-clock">3rd<i>·</i>8:42</p></div><p class="ps-head ps-head--next">Upcoming today</p><div class="ps-card"><div class="ps-card__top"><span class="ps-league">NBA</span><span class="ps-time">10:30 PM</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-mia.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Miami Heat</b></div><div class="ps-team"><img src="media/crest-gsw.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Golden State Warriors</b></div></div></div><div class="ps-card"><div class="ps-card__top"><span class="ps-league">NBA</span><span class="ps-time">10:30 PM</span></div><div class="ps-teams"><div class="ps-team"><img src="media/crest-nyk.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>New York Knicks</b></div><div class="ps-team"><img src="media/crest-lal.webp" alt="" width="28" height="28" loading="lazy" decoding="async"><b>Los Angeles Lakers</b></div></div></div></div><div class="ps-edge"></div><div class="ps-tabbar"><i></i><svg viewBox="21 791 360 62"><g class="is-on"><use href="#t-activity" x="63.4" y="804.67" width="21" height="21"/><text x="73.9" y="839.67">Scores</text></g><g><use href="#t-feed" x="148.1" y="804.67" width="21" height="21"/><text x="158.6" y="839.67">Feed</text></g><g><use href="#t-slips" x="232.9" y="804.67" width="21" height="21"/><text x="243.4" y="839.67">Slips</text></g><g><use href="#t-play" x="317.7" y="804.67" width="21" height="21"/><text x="328.2" y="839.67">Play</text></g></svg></div></div>
+                <canvas class="screen__lights" aria-hidden="true"></canvas>
+              </div>
+            </div>
+          </div>
+          <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+        </div>
+        <div class="seg brand__toggle" role="radiogroup" aria-label="Show the app in" data-focus="block">
+          <label><input type="radio" name="brand-theme" value="tells" checked><span>Tells</span></label>
+          <label><input type="radio" name="brand-theme" value="yours"><span>Your brand</span></label>
+        </div>
+        <p class="brand__caption" data-focus="block">The same screen in the app’s two themes.</p>
+
+        <details class="details" data-focus="block">
+          <summary>Details</summary>
+          <div class="details__body">
+            <dl class="facts"><div><dt>One theme</dt><dd>Change it once and every screen follows.</dd></div><div><dt>Already done</dt><dd>A second brand runs on the same app today.</dd></div><div><dt>Team crests</dt><dd>Every team keeps its crest, colours and abbreviation.</dd></div></dl>
+          </div>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <div class="stage__media">
+    <div class="device-pin">
+      <div class="device__glide">
+        <div class="device" data-device="stage">
+          <div class="device__screen">
+            <figure aria-hidden="true" class="screen-media is-current" data-film="live" data-hero>
+              <img src="media/screen-live.jpg" alt="" width="720" height="1566" fetchpriority="high" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-live.webm" data-mp4="media/screen-live.mp4"></video>
+            </figure>
+            <figure aria-hidden="true" class="screen-media" data-film="widgets" data-load-near="#lock-screen">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="media/screen-widgets.jpg" alt="" width="720" height="1566" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-widgets.webm" data-mp4="media/screen-widgets.mp4"></video>
+            </figure>
+            <figure aria-hidden="true" class="screen-media" data-film="track" data-load-near="#slips">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="media/screen-track.jpg" alt="" width="720" height="1566" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-track.webm" data-mp4="media/screen-track.mp4"></video>
+            </figure>
+            <figure aria-hidden="true" class="screen-media" data-film="play" data-load-near="#play">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="media/screen-play.jpg" alt="" width="720" height="1566" decoding="async">
+              <video muted playsinline loop preload="none" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1" data-webm="media/screen-play.webm" data-mp4="media/screen-play.mp4"></video>
+            </figure>
+            <div class="screen-media" data-film="brand" data-brand-slot="stage"></div>
+          </div>
+          <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="market" id="market" aria-labelledby="market-title">
+  <div class="wrap">
+    <header class="market__head">
+      <h2 class="h2" id="market-title" data-focus>Most days, your players have no <em>reason</em> to open your app.</h2>
+    </header>
+  </div>
+
+  <div class="deck wrap" data-deck>
+
+    <div class="mcard mcard--yellow" style="--i:0" data-card data-ground="yellow">
+      <div class="cover" aria-hidden="true"></div>
+      <figure class="mcard__in" id="fig-gap" aria-labelledby="fig-gap-claim">
+        <h3 class="vh" id="fig-gap-claim">23 in 100 online sports bettors say they bet daily. A self-reported CivicScience survey, published by Bank of America Institute in 2026.</h3>
+        <p class="mcard__read"><span class="mcard__fig"><span aria-hidden="true" data-count="23" data-kind="waffle">23%</span><span class="vh">23%</span></span></p>
+        <p class="mcard__mean" data-focus="wipe">of online sports bettors say they bet daily</p>
+        <p class="mcard__tells" data-focus="wipe">The other 77 get the score and their record from your app, every&nbsp;day.</p>
+        <div class="mcard__chart mcard__chart--waffle">
+          <div class="mcard__plot" data-plot="waffle" role="img" aria-label="A grid of 100 squares, 23 of them filled: 23 in 100 online sports bettors say they bet daily."></div>
+          <p class="mcard__key">Each square is 1 in 100 bettors</p>
+        </div>
+        <p class="source mcard__src" data-focus="wipe"><b>Survey:</b> <a href="https://institute.bankofamerica.com/content/dam/economic-insights/online-betting-platforms.pdf">CivicScience via Bank of America Institute</a>, 2026.</p>
+      </figure>
+    </div>
+
+    <div class="mcard" style="--i:1" data-card data-ground="dark">
+      <div class="cover" aria-hidden="true"></div>
+      <figure class="mcard__in" id="fig-live-activities" aria-labelledby="fig-lift-claim">
+        <h3 class="vh" id="fig-lift-claim">Sports-app users who turn on Live Activities have 3.7 times as many app sessions as those who don’t. Airship, 2024.</h3>
+        <p class="mcard__read"><span class="mcard__fig"><span aria-hidden="true" data-count="3.7" data-dec="1" data-unit="×" data-kind="lock">3.7×</span><span class="vh">3.7 times</span></span></p>
+        <p class="mcard__mean" data-focus="block">the app sessions, for sports-app users who turn on Live Activities</p>
+        <p class="mcard__tells" data-focus="block">A bet’s game stays on their Lock Screen until the&nbsp;final.</p>
+        <div class="mcard__chart mcard__chart--live">
+          <div class="mcard__plot" data-plot="live">
+
+            <div class="lv lv2" role="img" aria-label="An illustration, not data: an iPhone’s Lock Screen at 7:21 with a Tells Live Activity under the clock. Bills 21, Chiefs 17, fourth quarter, 1:52 left, for a Bills moneyline bet in a 2-leg parlay, live." data-cycle="An illustration, not data: an iPhone with a Tells Live Activity. Unlocked, it sits in the Dynamic Island, compact, then expanded, and the Bills score a touchdown: Bills 21, Chiefs 17, fourth quarter, 1:52 left, for a Bills moneyline bet in a 2-leg parlay, live. Then the phone locks and the card sits under the clock, 7:21, on the Lock Screen.">
+              <div class="lvp" aria-hidden="true">
+                <div class="device">
+                  <div class="device__screen lvp__screen">
+                    <i class="lvs__wall"></i>
+                    <i class="lvs__isle"></i>
+                    <div class="lv2__home"><span class="lvs__time">7:21</span><svg class="lvs__status" viewBox="0 0 402 54"><g transform="translate(22 0)"><path d="M315.33 30.33A11.31 11.31 0 0 1 331.33 30.33L329.61 32.05A8.88 8.88 0 0 0 317.05 32.05ZM318.09 33.09A7.41 7.41 0 0 1 328.57 33.09L326.85 34.81A4.98 4.98 0 0 0 319.81 34.81ZM323.33 38.33L320.85 35.85A3.51 3.51 0 0 1 325.81 35.85Z"/><rect x="339.83" y="26.5" width="24.33" height="11.67" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><path d="M365.26 29.33h.47a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2h-.47Z" fill-opacity=".4"/><rect x="341.33" y="28" width="21.33" height="8.67" rx="2.1"/></g></svg></div>
+                    <div class="lv2__scene">
+                      <svg class="lvs__status" viewBox="0 0 402 54"><path d="M288.4 34h1.2a.9 .9 0 0 1 .9 .9v2.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-2.53a.9 .9 0 0 1 .9-.9ZM293.07 31.66h1.2a.9 .9 0 0 1 .9 .9v4.87a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-4.87a.9 .9 0 0 1 .9-.9ZM297.74 29.33h1.2a.9 .9 0 0 1 .9 .9v7.2a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-7.2a.9 .9 0 0 1 .9-.9ZM302.41 27h1.2a.9 .9 0 0 1 .9 .9v9.53a.9 .9 0 0 1-.9 .9h-1.2a.9 .9 0 0 1-.9-.9v-9.53a.9 .9 0 0 1 .9-.9ZM315.33 30.33A11.31 11.31 0 0 1 331.33 30.33L329.61 32.05A8.88 8.88 0 0 0 317.05 32.05ZM318.09 33.09A7.41 7.41 0 0 1 328.57 33.09L326.85 34.81A4.98 4.98 0 0 0 319.81 34.81ZM323.33 38.33L320.85 35.85A3.51 3.51 0 0 1 325.81 35.85Z"/><rect x="339.83" y="26.5" width="24.33" height="11.67" rx="3.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><path d="M365.26 29.33h.47a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2h-.47Z" fill-opacity=".4"/><rect x="341.33" y="28" width="21.33" height="8.67" rx="2.1"/></svg>
+                      <svg class="lvs__lock" viewBox="0 0 18 18"><rect x="2.25" y="8.5" width="13.5" height="11" rx="2.6"/><path d="M5.45 9.5V5.2a3.55 3.55 0 0 1 7.1 0V9.5"/></svg>
+                      <span class="lvs__date">Sun Oct 4</span>
+                      <span class="lvs__clock">7:21</span>
+                    </div>
+                    <div class="lv2__glow"><i></i></div>
+                    <div class="lv2__shape"><i class="lv2__ring"><i></i></i><i class="lv2__fill"></i></div>
+                    <div class="lv2__lock"><div class="la" aria-hidden="true">
+                      <div class="la__row la__head"><span>NFL</span><svg class="la__tells" viewBox="0 0 408.07 233.26"><use href="#mark"/></svg></div>
+                      <div class="la__score">
+                      <img class="la__crest la__crest--l" src="media/crest-buf.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                      <span class="la__n la__n--a">21</span>
+                      <span class="la__lead"><svg viewBox="0 0 6 8"><use href="#i-lead"/></svg></span>
+                      <span class="la__n la__n--h">17</span>
+                      <img class="la__crest la__crest--r" src="media/crest-kc.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+                      </div>
+                      <div class="la__status"><span class="la__abbr">BUF</span><span class="la__clock">Q4&nbsp;·&nbsp;<span class="t">1:52</span></span><span class="la__abbr">KC</span></div>
+                      <div class="la__row la__bet"><span class="la__nodes"><i class="la__node"></i><i class="la__node"></i></span><span class="la__line"><b>Bills ML</b><span> · in your 2-leg parlay</span></span><span class="la__live">LIVE</span></div>
+                    </div></div>
+                    <div class="lx" aria-hidden="true">
+                      <img class="lx__crest lx__crest--a" src="media/crest-buf.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span class="lx__abbr lx__abbr--a">BUF</span>
+                      <div class="lx__score"><span class="lx__n"><span class="was">14</span><span class="now">21</span></span><span class="lx__lead"><svg class="was" viewBox="0 0 6 8"><path d="M0 0v8L6 4Z"/></svg><svg class="now" viewBox="0 0 6 8"><use href="#i-lead"/></svg></span><span class="lx__n">17</span></div>
+                      <span class="lx__clock">Q4&nbsp;·&nbsp;<span class="t"><span class="was">2:14</span><span class="now">1:52</span></span></span>
+                      <img class="lx__crest lx__crest--h" src="media/crest-kc.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span class="lx__abbr lx__abbr--h">KC</span>
+                      <div class="lx__bet"><span class="la__nodes"><i class="la__node"></i><i class="la__node"></i></span><span class="la__line"><b>Bills ML</b><span> · in your 2-leg parlay</span></span><span class="la__live">LIVE</span></div>
+                    </div>
+                    <div class="lc" aria-hidden="true">
+                      <img class="lc__crest lc__crest--a" src="media/crest-buf.webp" alt="" width="20" height="20" loading="lazy" decoding="async"><span class="lc__n lc__n--a"><span class="was">14</span><span class="now">21</span></span>
+                      <span class="lc__n lc__n--h">17</span><img class="lc__crest lc__crest--h" src="media/crest-kc.webp" alt="" width="20" height="20" loading="lazy" decoding="async">
+                    </div>
+                    <i class="lens"></i>
+                  </div>
+                  <svg class="device__frame" aria-hidden="true" focusable="false"><use href="#device-frame"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="source mcard__src" data-focus="block"><b>Data:</b> <a href="https://www.airship.com/explainer/ios-live-activities-explained/">Airship</a>, 2024, sports apps.</p>
+      </figure>
+    </div>
+
+    <div class="mcard mcard--yellow" style="--i:2" data-card data-ground="yellow">
+      <div class="cover" aria-hidden="true"></div>
+      <figure class="mcard__in" id="fig-season" aria-labelledby="fig-season-claim">
+        <h3 class="vh" id="fig-season-claim">Of the bettors who bet on the 2023–24 NFL regular season, 48% were still betting in the playoffs and 42% at the season’s last game. Optimove, data from over 200 operators.</h3>
+        <p class="mcard__read"><span class="mcard__fig"><span aria-hidden="true" data-count="42" data-kind="bars">42%</span><span class="vh">42%</span></span></p>
+        <p class="mcard__mean" data-focus="wipe">of NFL bettors were still betting by the season’s last game</p>
+        <p class="mcard__tells" data-focus="wipe">Scores, their record and a pick sheet with friends, every week of the&nbsp;season.</p>
+        <div class="mcard__chart mcard__chart--bars">
+          <div class="mcard__plot" data-plot="bars" role="img" aria-label="NFL bettors still betting as the 2023–24 season went on: regular season, 100%; playoffs, 48%; the season’s last game, 42%."></div>
+        </div>
+        <p class="source mcard__src" data-focus="wipe"><b>Data:</b> <a href="https://www.optimove.com/resources/blog/optimove-insights-nfl-player-retention-2023-24">Optimove</a>, 2023–24 NFL season, 200+ operators.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <h2 class="h2" id="how-title" data-focus>You bring four things. We do the&nbsp;<em>rest</em>.</h2>
+    <p class="lead" data-focus="block">Tells runs beside your platform, not inside it. Bets come in from a screenshot of the slip and are graded from final scores.</p>
+    <div class="how__cols">
+      <div class="how__col" data-focus="block">
+        <h3 class="how__head">You provide</h3>
+        <ul>
+          <li>Your Apple developer account, so the app is listed under your name</li>
+          <li>Your name, logo, colours and fonts</li>
+          <li>Your legal pages and <span class="nowrap">responsible-gambling</span> message</li>
+          <li>Your odds feed and a live scores feed</li>
+        </ul>
+      </div>
+      <div class="how__col" data-focus="block">
+        <h3 class="how__head">We do</h3>
+        <ul>
+          <li>Build the app in your brand, widgets and Lock Screen included</li>
+          <li>Run its back end, separate from every other brand’s</li>
+          <li>Connect your feeds</li>
+          <li>Test on real devices, submit to Apple and handle App Review</li>
+          <li>Keep it current with iOS, fixes and new features</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rules" id="rules" aria-labelledby="rules-title">
+  <div class="wrap rules__grid">
+    <h2 class="h2" id="rules-title" data-focus>Safe to put your <em>name</em>&nbsp;on.</h2>
+    <ul class="rule-list">
+      <li data-focus="rule"><span class="disc" aria-hidden="true"><svg><use href="#i-check"/></svg></span><div><h3>From the game</h3><p>Every figure comes from a price, a score or the player’s own slips.</p></div></li>
+      <li data-focus="rule"><span class="disc" aria-hidden="true"><svg><use href="#i-check"/></svg></span><div><h3>Your prices only</h3><p>Every price is your own. No other book, no offers.</p></div></li>
+      <li data-focus="rule"><span class="disc" aria-hidden="true"><svg><use href="#i-check"/></svg></span><div><h3>No bets, no money</h3><p>It takes no wagers and holds no funds.</p></div></li>
+      <li data-focus="rule"><span class="disc" aria-hidden="true"><svg><use href="#i-check"/></svg></span><div><h3>Asks first</h3><p>A slip’s text is read by Anthropic’s Claude only after the player agrees. The screenshot stays on the phone.</p></div></li>
+      <li data-focus="rule"><span class="disc" aria-hidden="true"><svg><use href="#i-check"/></svg></span><div><h3>Your player data, untouched</h3><p>It never connects to your player accounts, and needs no&nbsp;sign-up.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="status" id="status" aria-labelledby="status-title">
+  <div class="wrap status__in">
+    <h2 class="h2" id="status-title" data-focus>Tested on a real&nbsp;<em>game</em>.</h2>
+    <figure class="proof" data-ground="yellow" aria-labelledby="proof-line proof-cap">
+      <div class="cover" aria-hidden="true"></div>
+      <p class="proof__line" id="proof-line" data-focus="wipe">Your brand owns the Lock Screen and the Home Screen, during and between&nbsp;games.</p>
+      <figcaption class="proof__cap" id="proof-cap" data-focus="wipe">An NHL game, with the app closed: every goal reached the Lock Screen within about 30&nbsp;seconds.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="questions" id="questions" aria-labelledby="questions-title">
+  <div class="wrap">
+    <h2 class="h2" id="questions-title" data-focus>What books ask&nbsp;<em>first</em>.</h2>
+    <div class="qa-list">
+      <details class="qa" data-focus="block"><summary><span>Why a second app?</span><i aria-hidden="true"></i></summary><div class="qa__body"><div><p>Your betting app takes the bets; Tells fills the hours around them, under your name. It’s built, so nothing joins your roadmap.</p></div></div></details>
+      <details class="qa" data-focus="block"><summary><span>Do the odds tools work against&nbsp;us?</span><i aria-hidden="true"></i></summary><div class="qa__body"><div><p>No. They state the margin as a plain figure and never give advice. Players who want these numbers find them elsewhere today; here they get them under your name.</p></div></div></details>
+      <details class="qa" data-focus="block"><summary><span>How do we see it&nbsp;working?</span><i aria-hidden="true"></i></summary><div class="qa__body"><div><p>In App Store Connect, under your account: installs, sessions and retention, like any app you publish.</p></div></div></details>
+      <details class="qa" data-focus="block"><summary><span>Can we run it for more than one&nbsp;brand?</span><i aria-hidden="true"></i></summary><div class="qa__body"><div><p>Yes. Each brand gets its own app, theme and back end, from the same code.</p></div></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="demo" aria-labelledby="close-title" data-close>
+  <div class="close__ground" aria-hidden="true" data-ground="yellow"></div>
+  <div class="cover" aria-hidden="true"></div>
+  <div class="close__in">
+    <svg class="close__mark" viewBox="0 0 408.07 233.26" role="img" aria-label="Tells" data-ink>
+      <defs>
+        <filter id="ink" x="-20%" y="-30%" width="140%" height="160%" color-interpolation-filters="sRGB">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="14" data-ink-blur/>
+          <feComponentTransfer><feFuncA type="linear" slope="12" intercept="-5.5"/></feComponentTransfer>
+        </filter>
+      </defs>
+      <g data-ink-g><use href="#mark"/></g>
+    </svg>
+    <h2 class="close__line" id="close-title" data-close-line>The game, their bets, your&nbsp;<em>name</em>.</h2>
+    <p class="close__sub" data-close-rest>A short demo on an iPhone: the app in your&nbsp;brand.</p>
+    <div class="close__actions">
+      <a class="btn btn--dark close__btn" data-close-rest href="mailto:aklotzbuilds@gmail.com?subject=Tells%20demo%20request&amp;body=Hi%20Andrew%2C%0D%0A%0D%0AWe%27d%20like%20to%20see%20a%20demo%20of%20Tells.%0D%0A%0D%0AName%3A%0D%0ACompany%3A%0D%0ARole%3A%0D%0ABest%20times%3A%0D%0A"><span>Book a demo</span></a>
+      <a class="btn btn--ink-line close__btn" data-close-rest href="assets/tells-deck.pdf" download><svg aria-hidden="true" focusable="false"><use href="#i-download"/></svg><span>Download the deck</span></a>
+    </div>
+    <p class="close__or" data-close-rest>Or email <a href="mailto:aklotzbuilds@gmail.com?subject=Tells%20demo%20request">aklotzbuilds@gmail.com</a></p>
+    <p class="close__who" data-close-rest>Andrew Klotz designs and builds Tells.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <a class="site-footer__mark" href="#top" aria-label="Tells, back to top"><svg viewBox="0 0 408.07 233.26" aria-hidden="true" focusable="false"><use href="#mark"/></svg></a>
+      <a class="site-footer__mail" href="mailto:aklotzbuilds@gmail.com?subject=Tells%20demo%20request">aklotzbuilds@gmail.com</a>
+      <ul class="site-footer__links">
+        <li><a href="https://andrewklotz.github.io/tells-legal/privacy.html">Privacy Policy</a></li>
+        <li><a href="https://andrewklotz.github.io/tells-legal/terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+    <p class="site-footer__note">The films and illustrations re-create the app’s own screens; their games, scores and slips are illustrative. Team names, logos and colours belong to their owners; no affiliation or endorsement is implied. iPhone, App Store, Live Activities and Dynamic Island are trademarks of Apple Inc.</p>
+    <div class="site-footer__end">
+      <p>Tells takes no bets. If gambling is a problem for you or someone you know, call <a class="nowrap" href="tel:+18004262537">1-800-GAMBLER</a>.</p>
+      <p>© 2026 Andrew Klotz</p>
+    </div>
+  </div>
+</footer>
+
+<dialog class="film-dialog" id="film-dialog" aria-labelledby="film-dialog-title">
+  <div class="film-dialog__head">
+    <h2 class="vh" id="film-dialog-title">Tells, the 20-second film</h2>
+    <button class="util util--pill" type="button" data-film-close>Close</button>
+  </div>
+  <div class="film-dialog__frame">
+    <video controls playsinline muted preload="none" poster="media/tells-reel-poster.jpg" data-dialog-video data-mp4="media/tells-reel-20s-silent.mp4" data-mp4-small="media/tells-reel-20s-silent-720.mp4"></video>
+  </div>
+  <details class="film-dialog__transcript">
+    <summary>Transcript of the words on screen</summary>
+    <p>“Live scores &amp; bet tracking.” · “Every score, the moment it lands.” · “Scan your slips.” · “Live on your Lock Screen.” · “Your slips settle themselves.”</p>
+  </details>
+</dialog>
+
+</body>
+</html>
