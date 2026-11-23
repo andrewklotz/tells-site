@@ -46,7 +46,7 @@
     if (!w) return
     const pad = 10, inner = w - 2 * pad
     const sq = Math.floor(inner / 11.2), gap = Math.max(3, Math.floor((inner - 10 * sq) / 9)), r = Math.round(sq * R)
-    const well = 10 * sq + 9 * gap + 2 * pad, o = Math.floor((w - well) / 2), n = D.frequency[0].pct
+    const well = 10 * sq + 9 * gap + 2 * pad, o = Math.floor((w - well) / 2), n = D.pools.pct
     const s = svgIn(plot, w, w)
     plot.parentNode.style.setProperty('--under', w - o - well + 'px')
     keyDefs(s, 'kw')
@@ -59,20 +59,20 @@
   function bars(plot) {
     const w = plot.clientWidth, h = plot.clientHeight
     if (!w || !h) return
-    const rows = D.season.rows, n = rows.length, max = rows[0].pct
-    const pad = 10, top = 36, base = Math.round(h - 46 - pad), slot = (w - 2 * pad) / n, bw = Math.min(n > 4 ? 44 : 72, Math.round(slot * .5)), every = slot < 34 ? 2 : 1
+    const rows = D.retention.rows, n = rows.length, max = Math.max(...rows.map(r => r.value))
+    const pad = 10, top = 46, base = Math.round(h - 46 - pad), slot = (w - 2 * pad) / n, bw = Math.min(112, Math.round(slot * .5))
     const r = Math.min(Math.round(bw * .25), 8)
     const s = svgIn(plot, w, h)
     el('rect', { x: 0, y: 0, width: w, height: base }, el('clipPath', { id: 'm-bars-clip' }, keyDefs(s, 'kb')))
     el('path', { d: rr(0, 0, w, base + pad, r + pad), class: 'well' }, s)
     const g = el('g', { 'clip-path': 'url(#m-bars-clip)' }, s)
     rows.forEach((row, i) => {
-      const x = Math.round(pad + i * slot + (slot - bw) / 2), bh = Math.round((base - top) * row.pct / max), y = base - bh, cx = x + bw / 2
-      key(g, rr, x, y, bw, bh, r, 'kb', i === n - 1, { class: 'col', style: `--i:${i};--h:${bh}px` })
-      el('text', { x: cx, y: y - 8, 'text-anchor': 'middle', class: 't-val', style: `--i:${i}` }, s).textContent = row.pct + '%'
-      if (i % every === 0) el('text', { x: cx, y: base + pad + 19, 'text-anchor': 'middle' }, s).textContent = row.bucket
+      const x = Math.round(pad + i * slot + (slot - bw) / 2), bh = Math.round((base - top) * row.value / max), y = base - bh, cx = x + bw / 2
+      key(g, rr, x, y, bw, bh, r, 'kb', !!row.lit, { class: 'col', style: `--i:${i};--h:${bh}px` })
+      if (row.text) el('text', { x: cx, y: y - 10, 'text-anchor': 'middle', class: 't-val', style: `--i:${i}` }, s).textContent = row.text
+      el('text', { x: cx, y: base + pad + 19, 'text-anchor': 'middle' }, s).textContent = row.label
     })
-    el('text', { x: w / 2, y: base + pad + 42, 'text-anchor': 'middle', class: 't-title' }, s).textContent = 'NFL bettors still betting, 2023–24 season'
+    el('text', { x: w / 2, y: base + pad + 42, 'text-anchor': 'middle', class: 't-title' }, s).textContent = D.retention.title
   }
 
   const plots = [...deck.querySelectorAll('[data-plot]')]
@@ -91,7 +91,7 @@
   const unit = e => e.dataset.unit || '%'
   const show = e => { e.textContent = (+e.dataset.count).toFixed(+e.dataset.dec || 0) + unit(e) }
   const counts = {
-    waffle: { from: (t, n) => Math.min(n, Math.max(0, Math.floor((t - .1) / .035) + 1)), end: n => .1 + n * .035 },
+    waffle: { from: (t, n) => Math.min(n, Math.max(0, Math.floor((t - .1) / .016) + 1)), end: n => .1 + n * .016 },
     bars: { from: (t, n, k) => Math.round(n * k * house(Math.min(1, t / .6))) / k, end: () => .6 },
     lock: { from: (t, n, k) => Math.round(n * k * house(Math.min(1, Math.max(0, t - .1) / .9))) / k, end: () => 1 },
   }

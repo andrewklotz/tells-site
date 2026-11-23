@@ -1,1 +1,1 @@
-window.TELLS_DATA = {"frequency":[{"pct":23}],"lift":{"sessionsMultiple":3.7},"season":{"rows":[{"bucket":"Season","pct":100},{"bucket":"Playoffs","pct":48},{"bucket":"Last game","pct":42}]}};
+window.TELLS_DATA = {"retention":{"rows":[{"label":"Without the scores app","value":100,"text":""},{"label":"With the scores app","value":191,"text":"+91%","lit":true}],"title":"Day-30 retention, one sportsbook’s players"},"lift":{"sessionsMultiple":3.7},"pools":{"pct":94}};
