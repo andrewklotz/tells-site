@@ -1029,21 +1029,21 @@ html[data-motion="full"] .mcard__plot.is-in:not(.is-done) .lv2 .lc__n--h { anima
 
 .status { padding-top: var(--space-section); }
 .status__in { display: flex; flex-direction: column; align-items: flex-start; }
-.status .h2 { max-width: 900px; }
 .proof {
   position: relative; z-index: 45;
-  margin-top: var(--space-block); width: 100%; max-width: 820px; padding: 28px 24px;
-  border-radius: clamp(18px, 4.6vw, 41px);
+  width: 100%; max-width: 1040px; padding: 40px 24px;
+  border-radius: clamp(18px, 4.6vw, 52px);
   background: var(--yellow);
   --ground: var(--yellow); --ink: #000; --ink-2: #000; --focus-ring: #000; --link-line: #000;
   color: #000;
 }
 .proof .cover::before { background: var(--yellow); }
-.proof__line { font-family: var(--f-archivo); font-weight: 600; font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem); line-height: 1.12; letter-spacing: -0.01em; color: #000; text-wrap: balance; }
-.proof__cap { margin: 16px 0 0; max-width: 34em; font-size: .9375rem; line-height: 1.5; font-weight: 500; color: #000; text-wrap: balance; }
+.proof__line { font-family: var(--f-archivo); font-weight: 600; font-size: clamp(2.125rem, 1.45rem + 2.9vw, 4rem); line-height: 1.04; letter-spacing: -0.02em; color: #000; text-wrap: balance; }
+.proof__line span { display: block; }
+.proof__cap { margin: 24px 0 0; max-width: 34em; font-size: var(--t-benefit); line-height: 1.5; font-weight: 500; color: #000; text-wrap: balance; }
 @media (min-width: 900px) {
   .status__in { align-items: center; text-align: center; }
-  .proof { padding: 48px 64px; }
+  .proof { padding: 80px 64px; }
   .proof__cap { margin-inline: auto; }
 }
 @media (forced-colors: active) { .proof { border: 1px solid CanvasText; } }
